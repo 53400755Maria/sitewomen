@@ -1,0 +1,34 @@
+{% load static %}
+{% load women_tags %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <link type="text/css" href="{% static 'women/css/styles.css' %}" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <!-- Верхнее меню -->
+    {% include 'women/includes/nav.html' %}
+
+    <div class="clearfix">
+        <!-- Сайдбар (левая колонка) -->
+        <div class="sidebar">
+            <h3>Рубрики</h3>
+            {% show_categories cat_selected %}
+
+            <h3>Теги</h3>
+            {% show_all_tags %}
+        </div>
+
+        <!-- Основной контент -->
+        <div class="content">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </div>
+</div>
+</body>
+</html>

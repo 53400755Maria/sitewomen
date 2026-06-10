@@ -1,0 +1,314 @@
+/* Основные стили */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+    background: #f5f7fa;
+    color: #1e2a3a;
+    line-height: 1.5;
+}
+
+/* Контейнер для ограничения ширины */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Верхнее меню */
+ul.menu {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    background: white;
+    padding: 15px 25px;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+ul.menu li {
+    display: inline;
+}
+ul.menu li a {
+    text-decoration: none;
+    color: #1e2a3a;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+ul.menu li a:hover {
+    color: #4CAF50;
+}
+
+/* Сайдбар (левая колонка) */
+.sidebar {
+    float: left;
+    width: 260px;
+    margin-right: 30px;
+    background: white;
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+.sidebar h3 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: #2c3e50;
+    border-left: 4px solid #4CAF50;
+    padding-left: 12px;
+}
+.sidebar ul {
+    list-style: none;
+    margin-bottom: 20px;
+    padding-left: 0;
+}
+.sidebar ul li {
+    margin-bottom: 10px;
+}
+.sidebar ul li a {
+    text-decoration: none;
+    color: #2c3e50;
+    transition: color 0.2s;
+}
+.sidebar ul li a:hover {
+    color: #4CAF50;
+}
+.sidebar .selected {
+    font-weight: bold;
+    color: #4CAF50;
+}
+
+/* Основной контент */
+.content {
+    float: left;
+    width: calc(100% - 290px);
+}
+
+/* Карточки статей */
+.content ul {
+    list-style: none;
+}
+.content li {
+    background: white;
+    border-radius: 20px;
+    padding: 25px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.content li:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+.content h2 {
+    color: #1e2a3a;
+    margin-bottom: 10px;
+    font-size: 24px;
+}
+.article-panel {
+    display: flex;
+    justify-content: space-between;
+    color: #6c757d;
+    font-size: 14px;
+    margin-bottom: 15px;
+    padding-bottom: 8px;
+    border-bottom: 1px dashed #e9ecef;
+}
+.article-panel p {
+    margin: 0;
+}
+.content p {
+    margin-bottom: 15px;
+    color: #2c3e50;
+}
+.content a {
+    text-decoration: none;
+    color: #4CAF50;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+.content a:hover {
+    color: #2e7d32;
+    text-decoration: underline;
+}
+hr {
+    margin: 20px 0;
+    border: none;
+    height: 1px;
+    background: linear-gradient(to right, #e0e0e0, transparent);
+}
+
+/* Теги (список в сайдбаре и под статьёй) */
+.tags-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 15px 0;
+    padding-left: 0;
+}
+.tags-list li {
+    background: #eef2f5;
+    border-radius: 20px;
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+    transition: background 0.2s;
+}
+.tags-list li:hover {
+    transform: none;
+    background: #e0e7ed;
+}
+.tags-list a {
+    display: inline-block;
+    padding: 5px 14px;
+    background: transparent;
+    color: #2c3e50;
+    font-size: 13px;
+    border-radius: 20px;
+    text-decoration: none;
+}
+.tags-list a:hover {
+    background: #4CAF50;
+    color: white;
+    text-decoration: none;
+}
+
+/* Специальные стили для тегов в сайдбаре (вертикальный список) */
+.sidebar .tags-list {
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 5px;
+}
+.sidebar .tags-list li {
+    background: none;
+    padding: 0;
+}
+.sidebar .tags-list a {
+    padding: 5px 0;
+    background: none;
+    font-size: 14px;
+}
+.sidebar .tags-list a:hover {
+    background: none;
+    color: #4CAF50;
+}
+
+/* Кнопка "Читать пост" */
+.link-read-post {
+    display: inline-block;
+    margin-top: 10px;
+    font-weight: 600;
+}
+
+/* Очистка float */
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+.categories {
+    list-style: none;
+    padding: 0;
+}
+.categories li {
+    margin-bottom: 8px;
+}
+.categories li.selected {
+    font-weight: bold;
+    color: #4CAF50;
+}
+/* Стили для форм (логин, регистрация, профиль) */
+.form-container {
+    max-width: 500px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.form-container h1 {
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 28px;
+}
+
+.form-container form p {
+    margin-bottom: 15px;
+}
+
+.form-container .form-label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 5px;
+    color: #2c3e50;
+}
+
+.form-container input:not([type="checkbox"]),
+.form-container select,
+.form-container textarea {
+    width: 100%;
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-size: 16px;
+    transition: border-color 0.2s;
+}
+
+.form-container input:focus {
+    border-color: #4CAF50;
+    outline: none;
+}
+
+.form-container button {
+    background: #4CAF50;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 30px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+    transition: background 0.2s;
+}
+
+.form-container button:hover {
+    background: #2e7d32;
+}
+
+.form-error {
+    color: #e74c3c;
+    font-size: 13px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.form-container .helptext {
+    font-size: 12px;
+    color: #6c757d;
+    display: block;
+    margin-top: 5px;
+}
+
+.form-container ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.form-container li {
+    margin-bottom: 8px;
+}
+
+.form-container a {
+    color: #4CAF50;
+    text-decoration: none;
+}
+
+.form-container a:hover {
+    text-decoration: underline;
+}

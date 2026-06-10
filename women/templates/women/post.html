@@ -1,0 +1,27 @@
+{% extends 'women/base.html' %}
+
+{% block content %}
+<!-- Теги статьи -->
+{% with post.tags.all as tags %}
+{% if tags %}
+<ul class="tags-list">
+    <li>Теги:</li>
+    {% for t in tags %}
+    <li><a href="{{ t.get_absolute_url }}">{{ t.tag }}</a></li>
+    {% endfor %}
+</ul>
+{% endif %}
+{% endwith %}
+
+<h1>{{ post.title }}</h1>
+{% if post.photo %}
+    <p><img src="{{ post.photo.url }}" style="max-width: 300px;"></p>
+{% endif %}
+<div class="article-panel" style="margin-bottom: 20px;">
+    <p>Категория: {{ post.category.name }}</p>
+    <p>Обновлено: {{ post.time_update|date:"d.m.Y H:i" }}</p>
+</div>
+<div class="post-content">
+    {{ post.content|linebreaks }}
+</div>
+{% endblock %}

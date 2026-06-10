@@ -1,0 +1,23 @@
+{% extends 'women/base.html' %}
+
+{% block content %}
+<h1>{{ title }}</h1>
+<ul>
+    {% for p in posts %}
+    <li>
+       <div class="article-panel">
+    <p class="first">Категория: {{ p.category.name }}</p>
+    <p class="last">Дата: {{ p.time_update|date:"d-m-Y H:i" }}</p>
+</div>
+       {% if p.photo %}
+    <p><img src="{{ p.photo.url }}" width="100"></p>
+       {% endif %}
+        <h2>{{ p.title }}</h2>
+        <p>Заголовок заглавными: {{ p.title|upper }}</p>
+        <p>{{ p.content|linebreaks|truncatewords:50 }}</p>
+        <p class="link-read-post"><a href="{{ p.get_absolute_url }}">Читать пост →</a></p>
+        {% if not forloop.last %}<hr>{% endif %}
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}
